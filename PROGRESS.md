@@ -84,6 +84,32 @@
 
 ---
 
+## 发布就绪度（2026-10-10）
+
+**结论：核心可发布；插件面板待真实应用验证后才能发布。**
+
+| 项 | 状态 |
+|---|---|
+| git 仓库初始化 + 首次提交 | ✅ 已完成（3 次提交，82 个文件） |
+| LICENSE | ✅ MIT |
+| 包元数据 | ✅ 补 `license`/`author`/`keywords`/`repository`，移除 `private` |
+| README 环境要求 / 安装 / 许可 | ✅ 已补 |
+| 发布清单 | ✅ `docs/publishing-checklist.md` |
+| **在真实 DSH 中加载成功** | ⏳ **待重启验证（唯一阻断项）** |
+
+**修掉一个会泄露隐私的高危问题**：`.gitignore` 里 `data/*.local.json` 与
+`data/out/` **匹配不到嵌套路径**，模拟 `git add -A` 发现会提交
+`data/real/holdings.json`（真实持仓：代码/股数/成本）、`events.json`、
+以及含 `/Users/jim/...` 绝对路径的 `out/report.json`。
+改用 `**` 模式并整个排除 `data/real/`，复验后敏感项全部为 0。
+
+同时把 `docs/westock-skill-reference/`（腾讯 adm 的第三方 skill 副本，
+再分发需许可）排除出仓库，README 注明"请自行从来源安装"。
+
+**过程失误记录**：自检时用 `git init --separate-git-dir` 在项目里留下了
+一个 37 字节的 `.git` 指针文件（指向临时目录）。已确认无任何历史并删除。
+教训：在工作目录里做 git 模拟要隔离，别用 `--separate-git-dir` 指向项目自身。
+
 ## 阶段三交付物：待收分红
 
 **核心铁律**：待收金额**绝不进历史累计**。混进去"我已经收了多少"就失真了。
