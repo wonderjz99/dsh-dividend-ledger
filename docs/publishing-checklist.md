@@ -86,6 +86,77 @@ git ls-files | wc -l             # 应为 81 左右
 git ls-files | grep -c data/real # 必须为 0
 ```
 
+## 四之二、发布到 DSH 插件社区目录
+
+**没有官方"提交入口"**——DSH 生态的插件目录是社区维护的
+[imsai-sh/awesome-deepseek-harness-plugins](https://github.com/imsai-sh/awesome-deepseek-harness-plugins)
+（13,000+ 插件，网站 [deepseek1024.com](https://deepseek1024.com/)）。收录方式是 **PR 一个 JSON 文件**。
+
+### 收录门槛（已逐条自查）
+
+| 门槛 | 本仓库 |
+|---|---|
+| 仓库有一个带 `dsh.bundle.patch` 的 `package.json` | ✅ `plugin/package.json` |
+| 该 patch 文件在同一 revision 中存在 | ✅ `plugin/cordis.patch.yml` |
+| **仓库级 id 允许 manifest 在任意嵌套目录** | ✅ 两段式 id，manifest 在 `plugin/`，符合 |
+| 加 `dsh-plugin` GitHub topic（供自动发现） | ⏳ 见下 |
+| 仓库公开，目录能读到 | ⏳ 见下 |
+
+> 注意：`package.json` **不需要**在仓库根。CONTRIBUTING 原文：
+> "For a repository-level `id` the manifest may live at the root or in any nested directory"
+
+### 提交步骤
+
+```bash
+# 1. 先确认仓库已改名（见第四节的改名步骤），否则 PR 会被打回
+gh repo view wonderjz99/dsh-stock-dividend --json name,visibility
+
+# 2. 给仓库加 dsh-plugin topic（自动发现靠它）
+gh repo edit wonderjz99/dsh-stock-dividend --add-topic dsh-plugin
+
+# 3. fork 目录仓库
+gh repo fork imsai-sh/awesome-deepseek-harness-plugins --clone=false
+
+# 4. 克隆 fork，加一个文件（只加这一个，别动别的）
+cd /tmp && gh repo clone wonderjz99/awesome-deepseek-harness-plugins
+cd awesome-deepseek-harness-plugins
+cp /Users/jim/Projects/dsh-stock-dividend/docs/submission/wonderjz99--dsh-stock-dividend.json \
+   catalog/plugins/wonderjz99--dsh-stock-dividend.json
+git checkout -b add-dsh-stock-dividend
+git add catalog/plugins/wonderjz99--dsh-stock-dividend.json
+git commit -m "Add wonderjz99/dsh-stock-dividend"
+git push -u origin add-dsh-stock-dividend
+
+# 5. 开 PR（非 draft 才会自动合并）
+gh pr create --repo imsai-sh/awesome-deepseek-harness-plugins \
+  --title "Add wonderjz99/dsh-stock-dividend" \
+  --body "A-share dividend ledger plugin. Manifest at plugin/package.json with dsh.bundle.patch."
+```
+
+PR 通过 `Plugin submission review / static-review` 后**会被自动 squash 合并**，随后 CI 自动同步到网站与两个 README，无需人工介入。
+
+### 硬性约束（踩了就失败）
+
+1. **一个 PR 只能新增一个 `catalog/plugins/*.json`**，不得改动任何其它路径。
+2. **文件名固定**：id 每段小写、非字母数字连续段转 `-`，用 `--` 连接 →
+   `wonderjz99--dsh-stock-dividend.json`。
+3. **描述必须客观**，避免最高级形容词、行动号召、无依据的宣称。
+4. **草稿 PR 不会被自动合并**，验证通过也要标为 ready。
+
+### 安装来源：npm 与 GitHub 的区别
+
+目录的安装命令**只来自已发布的 npm 包**：
+
+- **已发布 npm** → 目录显示安装命令，可一键装
+- **只有 GitHub** → 仍会收录，但标记为 **browse-only**（只能看，不能一键装）
+
+**本项目的特殊情况**：插件依赖同仓库的 Python 核心（`dividend_ledger/`）。
+若只把 `plugin/` 发到 npm，装下来的包**找不到 Python 核心**。所以：
+
+- **现在**：走 GitHub 收录（browse-only），用户按 README 克隆后指向本地路径安装
+- **要发 npm**：需先把 Python 核心打进去（`files` 加 `dividend_ledger/`，
+  或在 prepublish 里拷贝），这是一个独立的打包工作
+
 ## 五、给别人用时要知道的
 
 | 事项 | 说明 |
