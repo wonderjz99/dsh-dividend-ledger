@@ -347,6 +347,7 @@ cd plugin && npm run check                        # TS
 | [docs/data-source-selection.md](docs/data-source-selection.md) | 分红数据源三方对比与选型决策 |
 | [docs/dsh-plugin-contract-0.2.0-rc.2.md](docs/dsh-plugin-contract-0.2.0-rc.2.md) | DSH 插件契约实证（449 行，带来源分级） |
 | [data/README.md](data/README.md) | 虚构数据覆盖了哪些边界场景 |
+| [发布清单](docs/publishing-checklist.md) | 推到 GitHub / 给别人用之前要逐项确认的东西 |
 
 ---
 
