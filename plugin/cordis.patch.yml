@@ -1,0 +1,19 @@
+# dsh-dividend-ledger 的 profile patch 层。
+#
+# 这是一个 loader patch 条目数组：`insert` 把本插件作为新的一行加入 profile。
+# 每行的 `id` 是稳定句柄，后续 patch 靠它覆盖；`config` 会整体传给 apply() 的第二个参数。
+#
+# 注意：DSH 的 patch 是**整体替换** config（不做深合并），所以覆盖时要把要保留的字段写全。
+- insert:
+    - id: dividend-ledger
+      name: 'dsh-dividend-ledger'
+      config:
+        # Python 解释器：留空则按 python3.12 → python3.11 → python3 依次探测。
+        # 核心只依赖标准库，所以任何 3.11+ 都能跑，不需要 venv。
+        pythonPath: ''
+        # 数据目录：留空则用当前会话工作区下的 data/。
+        dataDir: ''
+        # 仓库根目录：留空则从插件目录向上查找含 dividend_ledger/ 的目录。
+        root: ''
+        # 单次 Python 调用超时（毫秒）。账本是纯内存运算，30 秒足够。
+        timeoutMs: 30000

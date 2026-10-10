@@ -1,0 +1,53 @@
+# ── 真实持仓与账户信息：绝不入库 ────────────────────────────────────
+#
+# 注意模式必须写 `**` 而不是 `data/` 开头：`data/real/holdings.json`
+# 这种嵌套路径用 `data/*.local.json` 是**匹配不到**的。
+# 曾经因此差点把真实持仓（持有什么、多少股、成本多少）提交上去。
+data/holdings.local.json
+data/**/*.local.json
+data/**/holdings.local.json
+
+# 个人信息：真实账户相关的目录一律不入库，只保留虚构 fixture 与实测样本
+data/real/
+data/**/holdings.json
+data/**/events.json
+data/**/cache/
+data/**/dividend-payload.md
+
+# 派生输出：随时可由 report 重新生成
+data/out/
+data/**/out/
+
+# 到账日人工覆盖表：从券商流水抄来的，属于个人信息
+data/**/pay_dates.json
+
+# ── 第三方内容：不是本项目的代码，再分发需另行确认许可 ────────────────
+# westock 数据 skill 的副本（来源 skillhub.cn，作者 tencent-adm）。
+# 保留本地参考，但不随本仓库分发；使用者请自行从来源安装。
+docs/westock-skill-reference/
+
+# ── 本地环境备份 ──────────────────────────────────────────────────
+cordis.patch.yml.backup-*
+
+# ── Python ────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Node / TypeScript ─────────────────────────────────────────────
+node_modules/
+plugin/lib/
+plugin/lib-test/
+# 官方包的本地抽取副本：仅用于离线类型检查，属他人版权，绝不入库
+plugin/vendor/
+plugin/dist/
+plugin/.npm-cache/
+*.tsbuildinfo
+
+# ── 编辑器与系统 ──────────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp
