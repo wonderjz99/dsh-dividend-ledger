@@ -15,7 +15,12 @@
 | README 说明能做什么、怎么装 | ✅ 含「它是什么，不是什么」与三种安装方式 |
 | 不冒充官方 | ✅ 非官方社区项目 |
 
-## 提交方式
+## 提交记录
+
+**已提交**：[dshplugin/dsh-plugin-hub#147](https://github.com/dshplugin/dsh-plugin-hub/issues/147)
+（2026-10-10，状态 OPEN）
+
+## 提交方式（备查）
 
 打开 <https://github.com/dshplugin/dsh-plugin-hub/issues/new>，**标题与正文照下面填**。
 
