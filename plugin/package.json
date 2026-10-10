@@ -17,13 +17,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OWNER/dsh-dividend-ledger.git",
+    "url": "git+https://github.com/wonderjz99/dsh-dividend-ledger.git",
     "directory": "plugin"
   },
   "bugs": {
-    "url": "https://github.com/OWNER/dsh-dividend-ledger/issues"
+    "url": "https://github.com/wonderjz99/dsh-dividend-ledger/issues"
   },
-  "homepage": "https://github.com/OWNER/dsh-dividend-ledger#readme",
+  "homepage": "https://github.com/wonderjz99/dsh-dividend-ledger#readme",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
