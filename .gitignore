@@ -54,6 +54,9 @@ plugin/lib-test/
 # 官方包的本地抽取副本：仅用于离线类型检查，属他人版权，绝不入库
 plugin/vendor/
 plugin/dist/
+# npm 凭据与源配置：绝不能入库（可能含 token）
+.npmrc
+plugin/.npmrc
 plugin/.npm-cache/
 *.tsbuildinfo
 
