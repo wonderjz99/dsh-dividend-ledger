@@ -143,6 +143,42 @@ PR 通过 `Plugin submission review / static-review` 后**会被自动 squash �
 3. **描述必须客观**，避免最高级形容词、行动号召、无依据的宣称。
 4. **草稿 PR 不会被自动合并**，验证通过也要标为 ready。
 
+### 发到 npm（让别人能一键安装）
+
+**为什么不能直接 publish**：npm 只打包 `plugin/` **目录里面的**东西，而 Python 核心在
+仓库根部的 `dividend_ledger/`。不处理的话，别人装完 Node 层找不到 Python 核心，插件直接不可用。
+
+**做法**：`scripts/vendor-python.mjs` 把 19 个 `.py`（约 199 KB）拷进
+`plugin/dividend_ledger/`，布局与开发态一致（`dividend_ledger/` 与 `lib/` 并列），
+所以 `paths.ts` 的 `findRepoRoot()` 一行都不用改。
+
+> 为什么不做成 `python/` 子目录：`ROOT_MARKERS` 是 `dividend_ledger` 或 `SPEC.md`，
+> 放进子目录后从 `lib/` 向上永远碰不到标记，**解析会直接失败**。
+
+钩子：`prepack`（npm publish / npm pack）与 `prepare`（git 依赖安装）都会执行。
+
+**`__pycache__` 是个真实陷阱**：一旦在包目录里跑过 Python，就会生成几百 KB 的
+机器相关字节码。`files` 字段**只能包含、不能排除**，所以排除规则写在 `plugin/.npmignore` 里。
+
+**已验证的打包结果**：
+
+| 项 | 结果 |
+|---|---|
+| 包体积 | 96 KB（38 个条目） |
+| 内容 | `lib/`（编译产物）、`client/`、`dividend_ledger/`（19 个 .py）、`cordis.patch.yml` |
+| 混入检查 | `__pycache__` / `.pyc` / `node_modules` / `vendor/` / `src/` / `test/` 全部为 0 |
+| **解包后可用性** | ✅ 仓库根解析 = 包根；Python 核心可执行；跑出报告 ¥26,856.40 |
+
+发布命令：
+
+```bash
+cd /Users/jim/Projects/dsh-stock-dividend/plugin
+npm login                       # 需要你自己执行（涉及你的凭据）
+npm publish --access public     # prepack 会自动 build + 拷 Python 核心
+```
+
+发布后市场会自动检测到，把条目从 browse-only 升级为可一键安装。
+
 ### 安装来源：npm 与 GitHub 的区别
 
 目录的安装命令**只来自已发布的 npm 包**：

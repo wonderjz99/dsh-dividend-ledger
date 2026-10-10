@@ -46,6 +46,9 @@ __pycache__/
 
 # ── Node / TypeScript ─────────────────────────────────────────────
 node_modules/
+# 打进 npm 包的 Python 核心副本：由 scripts/vendor-python.mjs 生成，不入库
+plugin/dividend_ledger/
+plugin/**/__pycache__/
 plugin/lib/
 plugin/lib-test/
 # 官方包的本地抽取副本：仅用于离线类型检查，属他人版权，绝不入库

@@ -30,14 +30,14 @@ step() { printf '\n\033[1m== %s ==\033[0m\n' "$1"; }
 ok()   { printf '   \033[32m✓\033[0m %s\n' "$1"; }
 bad()  { printf '   \033[31m✗\033[0m %s\n' "$1"; FAILED=1; }
 
-step "1/6 Python 核心单测（${PYTHON}）"
+step "1/7 Python 核心单测（${PYTHON}）"
 if "$PYTHON" -m unittest discover -s tests -t . 2>&1 | tail -4; then
   ok "Python 单测通过"
 else
   bad "Python 单测失败"
 fi
 
-step "2/6 TS 适配层（tsc + 契约测试）"
+step "2/7 TS 适配层（tsc + 契约测试）"
 if [[ -d plugin/vendor/@deepseek-ai/dsh-tools ]]; then
   if (cd plugin && npm run check >/tmp/dl-ts-check.log 2>&1); then
     ok "TS 层通过（$(grep -c '^ok' /tmp/dl-ts-check.log 2>/dev/null || echo '?') 个测试）"
@@ -49,7 +49,7 @@ else
   printf '   \033[33m!\033[0m 跳过：先跑 node scripts/extract-dsh-packages.mjs 抽出宿主包\n'
 fi
 
-step "3/6 客户端面板产物（语法 + 注册行为）"
+step "3/7 客户端面板产物（语法 + 注册行为）"
 if [[ -f plugin/client/client.js ]]; then
   if node --check plugin/client/client.js 2>/dev/null; then
     ok "client.js 语法通过（$(wc -c < plugin/client/client.js | tr -d ' ') 字节）"
@@ -65,7 +65,7 @@ else
   bad "缺少 plugin/client/client.js"
 fi
 
-step "4/6 写入链路（点「入账」能不能真写进文件）"
+step "4/7 写入链路（点「入账」能不能真写进文件）"
 if node scripts/smoke-write.mjs >/tmp/dl-write.log 2>&1; then
   ok "写入链路通过（文件已改 / 可删除 / 可清空 / 走 subprocess）"
 else
@@ -73,7 +73,7 @@ else
   tail -15 /tmp/dl-write.log
 fi
 
-step "5/6 阶段三铁律（待收绝不进历史累计）"
+step "5/7 阶段三铁律（待收绝不进历史累计）"
 if python3.11 -m unittest tests.test_acceptance.UpcomingIsolationTest >/tmp/dl-upcoming.log 2>&1; then
   ok "待收独立成区块，历史累计未受污染"
 else
@@ -81,7 +81,15 @@ else
   tail -12 /tmp/dl-upcoming.log
 fi
 
-step "6/6 幂等验收：连跑两次逐字节一致"
+step "6/7 npm 打包内容（Python 核心是否打进去）"
+if node scripts/vendor-python.mjs --check >/tmp/dl-pack.log 2>&1; then
+  ok "$(tail -1 /tmp/dl-pack.log | sed 's/^ *//')"
+else
+  bad "打包内容不完整，发布出去的包会缺 Python 核心"
+  tail -8 /tmp/dl-pack.log
+fi
+
+step "7/7 幂等验收：连跑两次逐字节一致"
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 cp -R data "$WORK/data"

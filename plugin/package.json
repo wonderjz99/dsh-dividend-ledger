@@ -33,9 +33,11 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "lib",
+    "README.md",
     "client",
-    "cordis.patch.yml"
+    "cordis.patch.yml",
+    "dividend_ledger",
+    "lib"
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -43,7 +45,10 @@
     "test": "npm run build:test && node --test lib-test/test/*.test.js",
     "check": "npm run typecheck && npm run test",
     "vendor": "node ../scripts/extract-dsh-packages.mjs",
-    "build:test": "tsc -p tsconfig.test.json"
+    "build:test": "tsc -p tsconfig.test.json",
+    "vendor:python": "node ../scripts/vendor-python.mjs",
+    "prepack": "npm run build && npm run vendor:python",
+    "prepare": "npm run build && npm run vendor:python"
   },
   "dsh": {
     "bundle": {

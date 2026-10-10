@@ -1,0 +1,19 @@
+# npm 的 files 字段只能"包含"，不能排除，所以排除规则必须写在这里。
+#
+# __pycache__ 尤其重要：一旦在包目录里跑过 Python，就会生成几百 KB 的
+# 机器相关字节码（Python 版本一变就失效），绝不该进包。
+**/__pycache__/
+**/*.py[cod]
+**/*.egg-info/
+
+# 源码与测试不进包（发布的是编译后的 lib/）
+src/
+test/
+tsconfig*.json
+lib-test/
+vendor/
+
+# 本地缓存与日志
+.npm-cache/
+*.log
+*.tgz
