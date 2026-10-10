@@ -32,12 +32,22 @@
 
 ## 安装
 
-### 方式一：作为 DSH 插件（推荐）
+### 方式一：从 npm 一键安装（推荐）
+
+```bash
+dsh plugin --profile web add dsh-stock-dividend
+```
+
+装完**完全退出并重开** DSH。包内已包含 Python 核心，**不需要克隆仓库、不需要 `npm install`**。
+
+> 只依赖 Python 3.11+（核心仅用标准库）。联网取数另需 [westock CLI](#关于-westock重要)。
+
+### 方式二：从源码安装（要改代码时用）
 
 ```bash
 git clone https://github.com/wonderjz99/dsh-stock-dividend.git
 cd dsh-stock-dividend/plugin
-npm install && npm run build        # 若仓库已含 lib/ 可跳过
+npm install && npm run build
 ```
 
 然后在 DSH 的 **插件管理页面** 添加本插件（选"本地路径"，指向 `plugin/` 目录）。
@@ -57,14 +67,14 @@ npm install && npm run build        # 若仓库已含 lib/ 可跳过
 
 改完**完全退出并重开** DSH（宿主模块有缓存，热改 `lib/` 不会重载）。
 
-### 方式二：只用命令行账本
+### 方式三：只用命令行账本
 
 不需要 DSH、不需要 Node，只要能跑 Python：
 
 ```bash
 git clone https://github.com/wonderjz99/dsh-stock-dividend.git
 cd dsh-stock-dividend
-python3.11 -m dividend_ledger --text validate
+python3.11 -m dividend_ledger --data data/demo --text report
 ```
 
 ---
