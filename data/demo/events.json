@@ -1,0 +1,251 @@
+{
+  "format_version": 1,
+  "events": [
+    {
+      "code": "000001.SZ",
+      "ex_date": "2022-06-10",
+      "dividend_per_share": "0.228000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "14.20",
+      "plan_text": "虚构方案：10派2.28元",
+      "status": "implemented"
+    },
+    {
+      "code": "000001.SZ",
+      "ex_date": "2023-06-09",
+      "dividend_per_share": "0.285000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "11.80",
+      "plan_text": "虚构方案：10派2.85元",
+      "status": "implemented"
+    },
+    {
+      "code": "000001.SZ",
+      "ex_date": "2024-06-07",
+      "dividend_per_share": "0.719000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "10.50",
+      "plan_text": "虚构方案：10派7.19元",
+      "status": "implemented"
+    },
+    {
+      "code": "000001.SZ",
+      "ex_date": "2025-06-06",
+      "dividend_per_share": "0.765000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "11.10",
+      "plan_text": "虚构方案：10派7.65元",
+      "status": "implemented"
+    },
+    {
+      "code": "000001.SZ",
+      "ex_date": "2027-09-20",
+      "dividend_per_share": "1.200000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "plan_text": "虚构方案（董事会预案）：10派12元，待股东大会审议",
+      "status": "proposed"
+    },
+    {
+      "code": "300750.SZ",
+      "ex_date": "2021-05-28",
+      "dividend_per_share": "1.200000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "380.00",
+      "plan_text": "虚构方案：10派12元",
+      "status": "implemented"
+    },
+    {
+      "code": "300750.SZ",
+      "ex_date": "2024-05-24",
+      "dividend_per_share": "3.500000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "per_share_transfer": "0.200000",
+      "close_prev": "200.00",
+      "plan_text": "虚构方案：10派35元转增2股",
+      "status": "implemented"
+    },
+    {
+      "code": "300750.SZ",
+      "ex_date": "2025-05-23",
+      "dividend_per_share": "4.300000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "250.00",
+      "plan_text": "虚构方案：10派43元",
+      "status": "implemented"
+    },
+    {
+      "code": "600377.SH",
+      "ex_date": "2021-07-15",
+      "dividend_per_share": "0.460000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "8.80",
+      "plan_text": "虚构方案：10派4.6元",
+      "status": "implemented"
+    },
+    {
+      "code": "600377.SH",
+      "ex_date": "2022-07-14",
+      "dividend_per_share": "0.470000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "8.20",
+      "plan_text": "虚构方案：10派4.7元",
+      "status": "implemented"
+    },
+    {
+      "code": "600377.SH",
+      "ex_date": "2023-07-13",
+      "dividend_per_share": "0.480000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "8.60",
+      "plan_text": "虚构方案：10派4.8元",
+      "status": "implemented"
+    },
+    {
+      "code": "600377.SH",
+      "ex_date": "2024-07-11",
+      "dividend_per_share": "0.500000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "9.00",
+      "plan_text": "虚构方案：10派5元",
+      "status": "implemented"
+    },
+    {
+      "code": "600519.SH",
+      "ex_date": "2021-06-18",
+      "dividend_per_share": "21.675000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "right_reg_date": "2021-06-17",
+      "close_prev": "2200.00",
+      "plan_text": "虚构方案：10派216.75元",
+      "status": "implemented"
+    },
+    {
+      "code": "600519.SH",
+      "ex_date": "2022-06-17",
+      "dividend_per_share": "23.882000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "right_reg_date": "2022-06-16",
+      "close_prev": "1900.00",
+      "plan_text": "虚构方案：10派238.82元",
+      "status": "implemented"
+    },
+    {
+      "code": "600519.SH",
+      "ex_date": "2023-06-16",
+      "dividend_per_share": "25.911000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "right_reg_date": "2023-06-15",
+      "close_prev": "1700.00",
+      "plan_text": "虚构方案：10派259.11元",
+      "status": "implemented"
+    },
+    {
+      "code": "600519.SH",
+      "ex_date": "2024-06-19",
+      "dividend_per_share": "30.876000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "per_share_bonus": "0.100000",
+      "right_reg_date": "2024-06-18",
+      "close_prev": "1500.00",
+      "plan_text": "虚构方案：10派308.76元送1股",
+      "status": "implemented"
+    },
+    {
+      "code": "600519.SH",
+      "ex_date": "2025-06-20",
+      "dividend_per_share": "32.500000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "right_reg_date": "2025-06-19",
+      "close_prev": "1450.00",
+      "plan_text": "虚构方案：10派325元",
+      "status": "implemented"
+    },
+    {
+      "code": "600519.SH",
+      "ex_date": "2027-06-18",
+      "dividend_per_share": "25.911000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "right_reg_date": "2027-06-17",
+      "plan_text": "虚构方案（已公告未实施）：10派259.11元",
+      "status": "confirmed"
+    },
+    {
+      "code": "601988.SH",
+      "ex_date": "2023-07-08",
+      "dividend_per_share": "0.232000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "3.60",
+      "plan_text": "虚构方案：10派2.32元",
+      "status": "implemented"
+    },
+    {
+      "code": "601988.SH",
+      "ex_date": "2024-07-05",
+      "dividend_per_share": "0.243000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "4.20",
+      "plan_text": "虚构方案：10派2.43元",
+      "status": "implemented"
+    },
+    {
+      "code": "601988.SH",
+      "ex_date": "2025-07-04",
+      "dividend_per_share": "0.250000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "4.80",
+      "plan_text": "虚构方案：10派2.5元",
+      "status": "implemented"
+    },
+    {
+      "code": "688111.SH",
+      "ex_date": "2023-06-15",
+      "dividend_per_share": "0.200000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "150.00",
+      "plan_text": "虚构方案：10派2元",
+      "status": "implemented"
+    },
+    {
+      "code": "688111.SH",
+      "ex_date": "2024-06-14",
+      "dividend_per_share": "0.200000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "130.00",
+      "plan_text": "虚构方案：10派2元",
+      "status": "implemented"
+    },
+    {
+      "code": "688111.SH",
+      "ex_date": "2025-06-13",
+      "dividend_per_share": "0.200000",
+      "date_basis": "ex_date",
+      "source": "fixture",
+      "close_prev": "128.00",
+      "plan_text": "虚构方案：10派2元",
+      "status": "implemented"
+    }
+  ]
+}

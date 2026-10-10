@@ -96,21 +96,41 @@ python3.11 -m dividend_ledger --text validate
 
 核心是零依赖的 Python 包，不需要 venv、不需要 `pip install`：
 
+克隆下来就有一份**完全虚构的**数据集 `data/demo/`，可以立刻跑通全流程：
+
 ```bash
 # 1. 看数据状态
-python3.11 -m dividend_ledger --text validate
+python3.11 -m dividend_ledger --data data/demo --text validate
 
-# 2. 写入持仓（也可以直接编辑 data/real/holdings.json）
-python3.11 -m dividend_ledger --text holdings --set my-holdings.json
+# 2. 出报告（demo 事件已就绪，不需要先 sync）
+python3.11 -m dividend_ledger --data data/demo --text report
 
-# 3. 同步分红事件（离线虚构数据；换 --from westock 则联网取真实数据）
-python3.11 -m dividend_ledger --text sync --from fixture   # 离线虚构数据
-
-# 4. 出报告
-python3.11 -m dividend_ledger --text report
+# 3. 看持仓视图 + 两个股息率 + 待收（离线，不联网）
+python3.11 -m dividend_ledger --data data/demo --text portfolio --offline
 ```
 
-第 4 步会回一段这样的摘要（数字来自 `data/` 里的虚构数据）：
+第 2 步会回一段这样的摘要：
+
+```
+分红账（除权除息日 17 条；人工覆盖的派息到账日 2 条）
+
+  税前分红合计   ¥ 26,856.40
+  持有成本       ¥ 482,600.00
+  成本收益率     5.56%
+```
+
+**换成你自己的数据**（记得用 `data/real/`，它已被 `.gitignore` 排除，不会误提交）：
+
+```bash
+# 写入持仓（也可以直接编辑 data/real/holdings.json）
+python3.11 -m dividend_ledger --data data/real --text holdings --set my-holdings.json
+
+# 联网取真实分红数据（需要 westock CLI，见上「环境要求」）
+python3.11 -m dividend_ledger --data data/real --text sync --from westock
+
+# 出你自己的报告
+python3.11 -m dividend_ledger --data data/real --text report
+```
 
 ```
 分红账（除权除息日 17 条；人工覆盖的派息到账日 2 条）
@@ -347,6 +367,7 @@ cd plugin && npm run check                        # TS
 | [docs/data-source-selection.md](docs/data-source-selection.md) | 分红数据源三方对比与选型决策 |
 | [docs/dsh-plugin-contract-0.2.0-rc.2.md](docs/dsh-plugin-contract-0.2.0-rc.2.md) | DSH 插件契约实证（449 行，带来源分级） |
 | [data/README.md](data/README.md) | 虚构数据覆盖了哪些边界场景 |
+| [data/demo/README.md](data/demo/README.md) | 开箱即用的虚构数据集说明 |
 | [发布清单](docs/publishing-checklist.md) | 推到 GitHub / 给别人用之前要逐项确认的东西 |
 
 ---

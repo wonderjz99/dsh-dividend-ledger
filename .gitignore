@@ -7,12 +7,20 @@ data/holdings.local.json
 data/**/*.local.json
 data/**/holdings.local.json
 
-# 个人信息：真实账户相关的目录一律不入库，只保留虚构 fixture 与实测样本
+# 个人信息：真实账户相关的目录一律不入库
+#
+# 例外：data/demo/ 是**虚构的**开箱即用数据集（见 data/demo/README.md），
+# 必须入库，否则新克隆的仓库跑不了 README 里的"30 秒上手"。
+# 尾部的 `!` 规则用来把 demo 目录从上面的排除里捞回来。
 data/real/
 data/**/holdings.json
 data/**/events.json
 data/**/cache/
 data/**/dividend-payload.md
+!data/demo/
+!data/demo/holdings.json
+!data/demo/events.json
+!data/demo/README.md
 
 # 派生输出：随时可由 report 重新生成
 data/out/

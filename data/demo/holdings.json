@@ -1,0 +1,47 @@
+{
+  "format_version": 1,
+  "holdings": [
+    {
+      "code": "600519.SH",
+      "name": "虚构白酒",
+      "start_date": "2021-03-15",
+      "shares": "100",
+      "cost_per_share": "1950"
+    },
+    {
+      "code": "600377.SH",
+      "name": "虚构高速",
+      "start_date": "2022-01-10",
+      "shares": "2000",
+      "cost_per_share": "8.05"
+    },
+    {
+      "code": "000001.SZ",
+      "name": "虚构银行",
+      "start_date": "2023-04-01",
+      "shares": "3000",
+      "cost_per_share": "11.50"
+    },
+    {
+      "code": "300750.SZ",
+      "name": "虚构电池",
+      "start_date": "2020-06-18",
+      "shares": "200",
+      "cost_per_share": "285.00"
+    },
+    {
+      "code": "601988.SH",
+      "name": "虚构能源",
+      "start_date": "2024-03-01",
+      "shares": "5000",
+      "account": "test-account-a"
+    },
+    {
+      "code": "688111.SH",
+      "name": "虚构科技",
+      "start_date": "2020-06-18",
+      "shares": "1500",
+      "cost_per_share": "120.00"
+    }
+  ]
+}
