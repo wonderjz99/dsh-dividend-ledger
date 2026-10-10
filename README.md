@@ -341,8 +341,8 @@ cd plugin && npm run check                        # TS
 | 文档 | 内容 |
 |---|---|
 | [SPEC.md](SPEC.md) | 产品定义：目标、数据模型、业务口径、输入输出契约、非目标、风险 |
-| [PLAN.md](PLAN.md) | 四阶段计划、阶段一任务拆解、验收标准、决策日志 |
-| [PROGRESS.md](PROGRESS.md) | 执行记录：环境事实、取证结论、遗留问题 |
+| [PLAN.md](PLAN.md) | 六阶段计划与当前状态、各阶段验收标准、决策日志 |
+| [PROGRESS.md](PROGRESS.md) | 执行记录：环境事实、取证结论、31 个已修缺陷、遗留问题 |
 | [docs/methodology.md](docs/methodology.md) | 算法与口径逐条说明（含每个公式为什么这样） |
 | [docs/data-source-selection.md](docs/data-source-selection.md) | 分红数据源三方对比与选型决策 |
 | [docs/dsh-plugin-contract-0.2.0-rc.2.md](docs/dsh-plugin-contract-0.2.0-rc.2.md) | DSH 插件契约实证（449 行，带来源分级） |
