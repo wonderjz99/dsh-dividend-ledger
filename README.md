@@ -373,3 +373,4 @@ cd plugin && npm run check                        # TS
 - 一阶段**全程不联网**：`tests/test_acceptance.py` 里有守护测试，核心源码出现任何网络调用都会失败。
 - 所有数据都在你本机 `data/` 下；`data/out/` 是派生结果，删掉随时能重新生成。
 - `.gitignore` 已排除 `data/*.local.json`，真实持仓不要入库。
+# dsh-stock-dividend
