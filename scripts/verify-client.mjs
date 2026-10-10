@@ -40,7 +40,7 @@ const react = {
 await import(`file://${CLIENT}`)
 
 if (captured === null) errors.push('没有调用 window.__ModuleLoader__.load')
-if (captured !== null && captured.id !== 'dsh-dividend-ledger') {
+if (captured !== null && captured.id !== 'dsh-stock-dividend') {
   errors.push(`注册 id 不对：${captured.id}`)
 }
 

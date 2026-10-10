@@ -16,12 +16,12 @@
 
 ## 二、仓库地址
 
-已填为 `wonderjz99/dsh-dividend-ledger`（`README.md` 与 `plugin/package.json`）。
+已填为 `wonderjz99/dsh-stock-dividend`（`README.md` 与 `plugin/package.json`）。
 若日后改名或转移仓库，同步改这两处即可：
 
 ```bash
 cd /Users/jim/Projects/dsh-stock-dividend
-grep -rn 'wonderjz99/dsh-dividend-ledger' README.md plugin/package.json
+grep -rn 'wonderjz99/dsh-stock-dividend' README.md plugin/package.json
 ```
 
 ## 二之二、真实验证记录（2026-10-10）
@@ -69,11 +69,11 @@ python3.11 -m unittest tests.test_cli.CandidatesOfflineTest -v
 cd /Users/jim/Projects/dsh-stock-dividend
 
 # 方式 A：用 gh（已登录 wonderjz99，一步到位）
-gh repo create dsh-dividend-ledger --public --source=. \
+gh repo create dsh-stock-dividend --public --source=. \
   --remote=origin --push --description "A 股分红账本 DSH 插件：按持仓 × 公开分红方案算应有的分红"
 
 # 方式 B：纯 git（先在网页上建好空仓库，别加 README）
-git remote add origin git@github.com:wonderjz99/dsh-dividend-ledger.git
+git remote add origin git@github.com:wonderjz99/dsh-stock-dividend.git
 git branch -M main
 git push -u origin main
 ```

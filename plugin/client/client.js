@@ -1,5 +1,5 @@
 /**
- * dsh-dividend-ledger — 浏览器端面板
+ * dsh-stock-dividend — 浏览器端面板
  *
  * 形态与 dsh-stock-watch 一致：`window.__ModuleLoader__.load({id, factory})`，
  * factory 里 `require("react")`，`inject = ["slots"]`，在 `shell.overlay` 槽位注册。
@@ -16,7 +16,7 @@
  * 字体：LXGW WenKai Screen（霞鹜文楷屏幕版）作展示字，Noto Sans SC 作正文。
  */
 window.__ModuleLoader__.load({
-  id: 'dsh-dividend-ledger',
+  id: 'dsh-stock-dividend',
   factory: (require) => {
     var module = { exports: {} }
     var exports = module.exports
@@ -1297,7 +1297,7 @@ window.__ModuleLoader__.load({
      */
     function apply(ctx) {
       ctx.slots.inject('shell.overlay', () =>
-        ctx.slots.register({ name: 'shell.overlay', id: 'dsh-dividend-ledger' }, () =>
+        ctx.slots.register({ name: 'shell.overlay', id: 'dsh-stock-dividend' }, () =>
           react.createElement(LedgerPanel, null),
         ),
       )

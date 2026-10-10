@@ -63,7 +63,7 @@ test('apply 全程不抛错——即使 pythonPath 指向不存在的解释器',
 
 test('插件导出了 DSH 需要的 name / inject / Config', async () => {
   const mod = await import('../src/index.js')
-  assert.equal(name, 'dividend-ledger')
+  assert.equal(name, 'dsh-stock-dividend')
   assert.deepEqual(inject, ['tools'])
   assert.ok(mod.Config !== undefined, '必须导出 Config 供宿主校验配置')
 })

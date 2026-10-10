@@ -1,9 +1,9 @@
 {
-  "name": "dsh-dividend-ledger",
+  "name": "dsh-stock-dividend",
   "version": "0.1.0",
   "description": "A 股分红账本 DSH 插件 —— 薄 TypeScript 适配层，业务逻辑全部委托给 dividend_ledger Python 核心",
   "license": "MIT",
-  "author": "dsh-dividend-ledger contributors",
+  "author": "dsh-stock-dividend contributors",
   "keywords": [
     "dsh",
     "dsh-plugin",
@@ -17,13 +17,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wonderjz99/dsh-dividend-ledger.git",
+    "url": "git+https://github.com/wonderjz99/dsh-stock-dividend.git",
     "directory": "plugin"
   },
   "bugs": {
-    "url": "https://github.com/wonderjz99/dsh-dividend-ledger/issues"
+    "url": "https://github.com/wonderjz99/dsh-stock-dividend/issues"
   },
-  "homepage": "https://github.com/wonderjz99/dsh-dividend-ledger#readme",
+  "homepage": "https://github.com/wonderjz99/dsh-stock-dividend#readme",
   "type": "module",
   "main": "lib/index.js",
   "exports": {

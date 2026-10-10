@@ -21,7 +21,7 @@ import { mountRoutes } from './routes.js'
 import { buildTools } from './tools.js'
 import type { ToolDeps, ToolRuntimeEnv } from './tools.js'
 
-export const name = 'dividend-ledger'
+export const name = 'dsh-stock-dividend'
 
 /** 依赖的服务：没有 `tools` 就无处注册工具。 */
 export const inject = ['tools']

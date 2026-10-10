@@ -84,6 +84,30 @@
 
 ---
 
+## 项目更名为 dsh-stock-dividend
+
+原插件/包名 `dsh-dividend-ledger` 与目录名 `dsh-stock-dividend` 不一致，已统一。
+
+**插件标识符有四层，必须全部一致**（漏一层就会解析不到）：
+
+| 位置 | 字段 | 改后 |
+|---|---|---|
+| `plugin/package.json` | `name` | `dsh-stock-dividend` |
+| `plugin/cordis.patch.yml` | `name` | `dsh-stock-dividend` |
+| `plugin/src/index.ts` | `export const name` | `dsh-stock-dividend` |
+| `plugin/client/client.js` | `load({id})` 与 `slots.register({id})` | `dsh-stock-dividend` |
+| profile patch | `- id:` 句柄 | `dsh-stock-dividend` |
+
+其中 **`cordis.patch.yml` 的 `name` 最容易漏**——它要与 `package.json` 的 `name`
+一致，别人按包名安装时才解析得到。
+
+**没改的**（刻意保留）：Python 包名 `dividend_ledger`、CLI 名 `dividend-ledger`、
+面板 CSS 前缀 `dl-`、客户端槽位 id `shell.overlay`。
+
+改动中被 TS 测试挡下一次：`plugin/test/index.test.ts` 还断言旧名
+（`assert.equal(name, 'dividend-ledger')`），改名脚本没覆盖 `plugin/test/`，
+于是 47 个测试里挂了 1 个——**这正是测试该起的作用**。已修。
+
 ## 发布就绪度（2026-10-10）
 
 **结论：核心可发布；插件面板待真实应用验证后才能发布。**

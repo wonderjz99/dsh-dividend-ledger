@@ -35,8 +35,8 @@
 ### 方式一：作为 DSH 插件（推荐）
 
 ```bash
-git clone https://github.com/wonderjz99/dsh-dividend-ledger.git
-cd dsh-dividend-ledger/plugin
+git clone https://github.com/wonderjz99/dsh-stock-dividend.git
+cd dsh-stock-dividend/plugin
 npm install && npm run build        # 若仓库已含 lib/ 可跳过
 ```
 
@@ -46,11 +46,11 @@ npm install && npm run build        # 若仓库已含 lib/ 可跳过
 
 ```yaml
 - insert:
-    - id: dividend-ledger
-      name: '/绝对路径/dsh-dividend-ledger/plugin/lib/index.js'
+    - id: dsh-stock-dividend
+      name: '/绝对路径/dsh-stock-dividend/plugin/lib/index.js'
       config:
         pythonPath: ''      # 留空自动探测 python3.12 → python3.11 → python3
-        dataDir: '/绝对路径/dsh-dividend-ledger/data/real'
+        dataDir: '/绝对路径/dsh-stock-dividend/data/real'
         root: ''
         timeoutMs: 30000
 ```
@@ -62,8 +62,8 @@ npm install && npm run build        # 若仓库已含 lib/ 可跳过
 不需要 DSH、不需要 Node，只要能跑 Python：
 
 ```bash
-git clone https://github.com/wonderjz99/dsh-dividend-ledger.git
-cd dsh-dividend-ledger
+git clone https://github.com/wonderjz99/dsh-stock-dividend.git
+cd dsh-stock-dividend
 python3.11 -m dividend_ledger --text validate
 ```
 
